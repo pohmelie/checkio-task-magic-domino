@@ -56,6 +56,7 @@ def check_data(size, number, user_result):
 from checkio.signals import ON_CONNECT
 from checkio import api
 from checkio.referees.io import CheckiOReferee
+from checkio.referees.cover_codes import unwrap_args
 
 from tests import TESTS
 
@@ -65,8 +66,8 @@ api.add_listener(
     CheckiOReferee(
         tests=TESTS,
         cover_code={
-            'python-27': None,
-            'python-3': None
+            'python-27': unwrap_args,
+            'python-3': unwrap_args,
         },
         checker=check_data
     ).on_ready
