@@ -1,32 +1,74 @@
 <p>
-    Build square matrix <strong>size</strong>&#10005;<strong>size</strong> of integers, where sum of numbers in each row, column and 
-    diagonal equals <strong>number</strong>.
-    This matrix should be builded from unique, vertically oriented <a href="http://en.wikipedia.org/wiki/Dominoes">classic domino tiles</a>
-    (from 0 to 6 inclusive on each half of tile, also named double-six set).
-</p>
-<p>
-Here is example for <strong>size</strong> = 4 and <strong>number</strong> = 5
-    <pre>
-     5  5 5 5 5  5
-        _______ 
-     5 |0 0 2 3
-     5 |0 4 1 0
-
-     5 |4 0 0 1
-     5 |1 1 2 1
-    </pre>
-</p>
-<p>
-    You get <strong>size</strong> and <strong>number</strong> as input to your checkio function and should return 
-    matrix (list/tuple of rows (list/tuple)). For above example: ((0, 0, 2, 3), (0, 4, 1, 0), ...)
+    When Nikola can not find opponent for <a href="http://en.wikipedia.org/wiki/Dominoes">Domino</a> game,
+    he spread Magic Domino Solitaire.
+    The goal of the solitaire is build a <a href="http://en.wikipedia.org/wiki/Magic_square">Magic square</a> with
+    <a href="http://en.wikipedia.org/wiki/Dominoes#Tiles_and_suits">Double Six</a> domino tiles.
 </p>
 
 <p>
-    <strong>Precondition:</strong></br>
-    size in (4, 6)</br>
-    All input cases are solvable.
+    A magic square is an arrangement of distinct integers, in a square grid,
+    where the numbers in each row, and in each column, and the numbers in the forward and backward main diagonals,
+    all add up to the same number.<br>
+    Domino tiles contains two numbers from 0 (empty) to 6. Tiles are unordered and 1-6 is the same as 6-1.
+    The double-six set contains 28 unique tiles - all combinations of number pairs.
+</p>
+
+
+<p style="text-align: center;">
+    <img class="for_info_only"
+         title="double-six"
+         src="{{MEDIA}}double-six.png"
+         alt="double-six"
+         width="540px"/>
+    <img class="for_editor_only"
+         title="double-six"
+         src="{{MEDIA}}non-unique-elements.png"
+         alt="double-six"
+         width="380px"/>
 </p>
 <p>
-    <strong>Hint:</strong></br>
-    Your solution should run nearly half a minute on your local pc for thoughest inputs, so don't be afraid.
+    You are given a <strong>size</strong> for the magic square and a <strong>number</strong>.
+    You should build a magic square by given <strong>size</strong>
+    so that the sum of the horizontal and vertical diagonals equal the given <strong>number</strong>.
+    You can place domino tiles from double-six set only <strong>vertically</strong> and they should be <strong>unique</strong>.
+</p>
+<p>
+    Here is example for <strong>size</strong> = 4 and <strong>number</strong> = 5:
+</p>
+<p style="text-align: center;">
+    <img title="square"
+         src="{{MEDIA}}square.png"
+         alt="square"
+         width="200px"/>
+</p>
+
+<p>
+    The result magic square should be represented as as a list/tuple of lists/tuples with integers.
+</p>
+
+
+<p><strong>Input: </strong>Two arguments. A magic square size and a number as integers</p>
+
+<p><strong>Output: </strong>The magic square as a list/tuple of lists/tuples with integers.</p>
+
+<div class="for_info_only">
+    <p><strong>Example:</strong></p>
+<pre class="brush: python">checkio([1, 2, 3, 1, 3]) == [1, 3, 1, 3]
+checkio([1, 2, 3, 4, 5]) == []
+checkio([5, 5, 5, 5, 5]) == [5, 5, 5, 5, 5]
+checkio([10, 9, 10, 10, 9, 8]) == [10, 9, 10, 10, 9]
+</pre>
+</div>
+<p>
+    <strong>How it is used:</strong>
+    This is a constraint satisfaction problem.
+    It's used not only for solving solitaries, but also for planning and resource allocation in city planning,
+    construction and just about everywhere else.
+
+</p>
+
+<p>
+    <strong>Precondition:</strong><br>
+    size in (4, 6)<br>
+    All input test cases are solvable.
 </p>
