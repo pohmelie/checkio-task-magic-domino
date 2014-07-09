@@ -7,8 +7,8 @@ MAGIC_ERROR = False, {"error_code": 3, "message": "It's not a magic square."}
 DOMINO_ERROR = False, {"error_code": 4, "message": "It's not a domino magic square."}
 ALL_OK = True, {"error_code": 100, "message": "All ok."}
 
-def check_data(size, number, user_result):
-
+def check_data(data, user_result):
+    size, number = data
     #check types
     check_container_type = lambda o: any(map(lambda t: isinstance(o, t), (list, tuple)))
     check_cell_type = lambda i: isinstance(i, int)
