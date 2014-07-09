@@ -5,6 +5,8 @@ def checkio(size, number):
 
 if __name__ == '__main__':
     #These "asserts" using only for self-checking and not necessary for auto-testing
+    import itertools
+
     def check_data(size, number, user_result):
 
         # check types
@@ -28,7 +30,7 @@ if __name__ == '__main__':
         if not all(map(lambda x: 0 <= x <= 6, itertools.chain.from_iterable(user_result))):
 
             raise Exception("Wrong matrix integers (can't be domino tiles)")
-        
+
         # check is it a magic square
         seq_sum_check = lambda seq: sum(seq) == number
         diagonals_indexes = zip(*map(lambda i: ((i, i), (i, size - i - 1)), range(size)))
